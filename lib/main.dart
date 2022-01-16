@@ -20,7 +20,7 @@ class Screen1 extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.teal[900],
         appBar: AppBar(
-          backgroundColor: Colors.teal[900],
+          backgroundColor: Colors.transparent,
           elevation: 0.0,
         ),
         drawer: Drawer(),
@@ -288,13 +288,22 @@ class BottomModal extends StatelessWidget {
                             children: [
                               Container(
                                 margin:
-                                    EdgeInsets.only(left: 25.0, bottom: 15.0),
-                                child: Text(
-                                  "Minimalism Lifestyle",
-                                  style: TextStyle(
-                                      color: Colors.grey[850],
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 18.0),
+                                    EdgeInsets.only(left: 25.0, bottom: 5.0),
+                                child: TextButton(
+                                  child: Text(
+                                    "Minimalism Lifestyle",
+                                    style: TextStyle(
+                                        color: Colors.grey[850],
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 18.0),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Screen2()),
+                                    );
+                                  },
                                 ),
                               ),
                               Container(
@@ -451,5 +460,194 @@ class BottomModal extends StatelessWidget {
             ),
           );
         });
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: 300.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/img7.jpeg'), fit: BoxFit.fill),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 5),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 250,
+                  margin: EdgeInsets.only(top: 20.0, left: 10.0),
+                  child: Text(
+                    "Minimalism Lifestyle",
+                    style: TextStyle(
+                        color: Colors.grey[850],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 33.0),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 40.0, left: 30.0),
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.orange,
+                    child: Icon(
+                      Icons.keyboard_arrow_right_sharp,
+                      color: Colors.white,
+                      size: 40,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 25.0, left: 10.0),
+            child: Text(
+              "Lorem ipsum dolor sit amet, Fusce diam ex, feugiat vel est sit amet, pellentesque egestas nisi.",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.0),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 20.0, left: 10.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("images/img5.jpeg"),
+                ),
+                Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 15.0),
+                      child: Text(
+                        "June Rose",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15.0),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15.0),
+                      child: Text(
+                        "23.5K Followers",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 10.0),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 80.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.grey[200],
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                          size: 40,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                        child: Text(
+                          "+ Favorite",
+                          style: TextStyle(
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13.0),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.grey[200],
+                        child: Icon(
+                          Icons.trending_up,
+                          color: Colors.orange,
+                          size: 40,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                        child: Text(
+                          "Trending",
+                          style: TextStyle(
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13.0),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.grey[200],
+                        child: Icon(
+                          Icons.av_timer,
+                          color: Colors.orange,
+                          size: 40,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                        child: Text(
+                          "Recent",
+                          style: TextStyle(
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13.0),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
